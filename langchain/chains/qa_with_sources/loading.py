@@ -11,6 +11,7 @@ from langchain.chains.qa_with_sources import (
     map_reduce_prompt,
     refine_prompts,
     stuff_prompt,
+    stuff_prompt_ch
 )
 from langchain.chains.question_answering import map_rerank_prompt
 from langchain.prompts.base import BasePromptTemplate
@@ -47,8 +48,10 @@ def _load_map_rerank_chain(
 
 def _load_stuff_chain(
     llm: BaseLanguageModel,
-    prompt: BasePromptTemplate = stuff_prompt.PROMPT,
-    document_prompt: BasePromptTemplate = stuff_prompt.EXAMPLE_PROMPT,
+    #prompt: BasePromptTemplate = stuff_prompt.PROMPT,
+    prompt: BasePromptTemplate = stuff_prompt_ch.PROMPT,
+    #document_prompt: BasePromptTemplate = stuff_prompt.EXAMPLE_PROMPT,
+    document_prompt: BasePromptTemplate = stuff_prompt_ch.EXAMPLE_PROMPT,
     document_variable_name: str = "summaries",
     verbose: Optional[bool] = None,
     **kwargs: Any,
